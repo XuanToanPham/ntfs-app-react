@@ -7,7 +7,34 @@ import { NFT__DATA } from "../asset/data/data";
 const Market = () => {
   const [data, setData] = useState(NFT__DATA);
 
-  const handleCategory = () => {};
+  const handleCategory = (e) => {
+    const filterCategory = e.target.value;
+    if (filterCategory === "art") {
+      const filterData = NFT__DATA.filter((item) => item.category === "art");
+      setData(filterData);
+    } else if (filterCategory === "music") {
+      const filterData = NFT__DATA.filter((item) => item.category === "music");
+      setData(filterData);
+    } else if (filterCategory === "domain-name") {
+      const filterData = NFT__DATA.filter(
+        (item) => item.category === "domain-name"
+      );
+      setData(filterData);
+    } else if (filterCategory === "virtual-world") {
+      const filterData = NFT__DATA.filter(
+        (item) => item.category === "virtual-world"
+      );
+      setData(filterData);
+    } else if (filterCategory === "trending-card") {
+      const filterData = NFT__DATA.filter(
+        (item) => item.category === "trending-card"
+      );
+      setData(filterData);
+    } else {
+      const filterData = NFT__DATA;
+      setData(filterData);
+    }
+  };
 
   const handleItems = () => {};
   //Sorting data by high, mid, low rate
@@ -39,7 +66,7 @@ const Market = () => {
                 <div className="filter__left d-flex align-items-center gap-5">
                   <div className="all__category__filter">
                     <select onChange={handleCategory}>
-                      <option>All Categories</option>
+                      <option value={"all"}>All Categories</option>
                       <option value="art">Art</option>
                       <option value="music">Music</option>
                       <option value="domain-name">Domain Name</option>

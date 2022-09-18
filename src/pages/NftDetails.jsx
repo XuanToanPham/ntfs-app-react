@@ -7,6 +7,7 @@ import LiveAuction from "../Components/UI/Live-auction/LiveAuction";
 import { Link } from "react-router-dom";
 import "../style/nftDetail.css";
 const NftDetails = () => {
+  
   const { id } = useParams();
   const singleNft = NFT__DATA.find((item) => +item.id === +id);
   return (
@@ -29,19 +30,19 @@ const NftDetails = () => {
                 <div className="d-flex align-items-center justify-content-between mt-4 mb-4">
                   <div className="d-flex align-items-center gap-4 single__nft-seen">
                     <span>
-                      <i class="ri-eye-line"></i> 234
+                      <i className="ri-eye-line"></i> 234
                     </span>
                     <span>
-                      <i class="ri-heart-line"></i>123
+                      <i className="ri-heart-line"></i>123
                     </span>
                   </div>
 
                   <div className="d-flex align-items-center gap-2 single__nft-more">
                     <span>
-                      <i class="ri-send-plane-line"></i>
+                      <i className="ri-send-plane-line"></i>
                     </span>
                     <span>
-                      <i class="ri-more-2-fill"></i>
+                      <i className="ri-more-2-fill"></i>
                     </span>
                   </div>
                 </div>
@@ -56,7 +57,7 @@ const NftDetails = () => {
                 </div>
                 <p className="my-4">{singleNft.desc}</p>
                 <button className="singleNft__btn d-flex align-items-center gap-2 w-100">
-                  <i class="ri-shopping-bag-line"></i>
+                  <i className="ri-shopping-bag-line"></i>
                   <Link to="/wallet">Place a Bid</Link>
                 </button>
               </div>

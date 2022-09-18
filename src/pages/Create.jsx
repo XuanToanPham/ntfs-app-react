@@ -4,8 +4,22 @@ import CommonSection from "../Components/UI/Common-section/CommonSection";
 import NftCard from "../Components/UI/Nft-card/NftCard";
 import img from "../asset/images/img-01.jpg";
 import avatar from "../asset/images/ava-01.png";
-import "../style/create.css"
+import "../style/create.css";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  validateFileInputAction,
+  validatePriceInputAction,
+  validateMiniumBidAction,
+} from "../redux/ValidateForm/validateForm";
 const Create = () => {
+  const dispatch = useDispatch();
+  const isValidInputFile = useSelector((state) => state.inputFile.isValid);
+  const messageInputPrice = useSelector(
+    (state) => state.inputPrice.messageError
+  );
+  const messageMiniumBidInput = useSelector(
+    (state) => state.inputMiniumBid.messageError
+  );
   const item = {
     id: "04",
     title: "Guard",
@@ -15,6 +29,23 @@ const Create = () => {
     creatorImg: avatar,
     currentBid: 7.89,
   };
+
+  const inputFileChangeHandle = (e) => {
+    const tyleFile = e.target.files[0].type;
+    const sizeFile = e.target.files[0].size;
+
+    dispatch(validateFileInputAction.isValidFile(tyleFile));
+    dispatch(validateFileInputAction.isSizeFile(sizeFile));
+  };
+
+  const inputPriceChangeHandle = (e) => {
+    const price = e.target.value;
+    dispatch(validatePriceInputAction.isValidPrice(price));
+  };
+  const inputMiniumBidChangeHandle = (e) =>{
+    const miniumBid = e.target.value;
+    dispatch(validateMiniumBidAction.isValidMediumBid(miniumBid));
+  }
   return (
     <>
       <CommonSection title={"Create Item"} />
@@ -31,7 +62,18 @@ const Create = () => {
                 <form>
                   <div className="form__input">
                     <label htmlFor="">Upload File</label>
-                    <input type="file" className="upload__input" />
+
+                    <input
+                      type="file"
+                      className="upload__input"
+                      accept="image/*"
+                      onChange={inputFileChangeHandle}
+                    />
+                    {!isValidInputFile ? (
+                      <span className="input__error">Check Error</span>
+                    ) : (
+                      ""
+                    )}
                   </div>
 
                   <div className="form__input">
@@ -39,12 +81,28 @@ const Create = () => {
                     <input
                       type="number"
                       placeholder="Enter price for one item (ETH)"
+                      onChange={inputPriceChangeHandle}
                     />
+                    {messageInputPrice ? (
+                      <span className="input__error">{messageInputPrice}</span>
+                    ) : (
+                      ""
+                    )}
                   </div>
 
                   <div className="form__input">
                     <label htmlFor="">Minium Bid</label>
-                    <input type="number" placeholder="Enter minium bid" />
+                    <input
+                      type="number"
+                      placeholder="Enter minium bid"
+                      min={0}
+                      onChange={inputMiniumBidChangeHandle}
+                    />
+                      {messageMiniumBidInput ? (
+                      <span className="input__error">{messageMiniumBidInput}</span>
+                    ) : (
+                      ""
+                    )}
                   </div>
 
                   <div className="d-flex">

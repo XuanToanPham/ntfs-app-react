@@ -24,7 +24,7 @@ export const NFT__DATA = [
     creator: "Trista Francis",
     creatorImg: ava01,
     currentBid: 5.89,
-    category: "art"
+    category: "art",
   },
 
   {
@@ -35,8 +35,7 @@ export const NFT__DATA = [
     creator: "Trista Francis",
     creatorImg: ava02,
     currentBid: 5.09,
-    category: "music"
-
+    category: "music",
   },
 
   {
@@ -47,8 +46,7 @@ export const NFT__DATA = [
     creator: "Trista Francis",
     creatorImg: ava03,
     currentBid: 6.89,
-    category: "domain-name"
-
+    category: "domain-name",
   },
 
   {
@@ -59,7 +57,7 @@ export const NFT__DATA = [
     creator: "Trista Francis",
     creatorImg: ava04,
     currentBid: 7.89,
-    category: "virtual-world"
+    category: "virtual-world",
   },
 
   {
@@ -70,8 +68,7 @@ export const NFT__DATA = [
     creator: "Trista Francis",
     creatorImg: ava05,
     currentBid: 4.89,
-    category: "trending-card"
-  
+    category: "trending-card",
   },
 
   {
@@ -82,8 +79,7 @@ export const NFT__DATA = [
     creator: "Trista Francis",
     creatorImg: ava06,
     currentBid: 4.99,
-    category: "art"
-
+    category: "art",
   },
 
   {
@@ -94,8 +90,7 @@ export const NFT__DATA = [
     creator: "Trista Francis",
     creatorImg: ava03,
     currentBid: 5.89,
-    category: "trending-card"
-
+    category: "trending-card",
   },
 
   {
@@ -106,8 +101,7 @@ export const NFT__DATA = [
     creator: "Trista Francis",
     creatorImg: ava04,
     currentBid: 5.89,
-    category: "virtual-world"
-
+    category: "virtual-world",
   },
 
   {
@@ -118,7 +112,7 @@ export const NFT__DATA = [
     creator: "Trista Francis",
     creatorImg: ava05,
     currentBid: 5.89,
-    category: "music"
+    category: "music",
   },
 ];
 
@@ -230,9 +224,7 @@ export const SELLER__DATA = [
 
   {
     id: 4,
-
     desc: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam adipisci cupiditate officia",
-
     sellerName: "Ryan Carder",
     sellerImg: ava04,
     currentBid: 5.89,
@@ -266,4 +258,5 @@ export const SELLER__DATA = [
     instaUrl: "#",
     twitUrl: "#",
   },
+
 ];

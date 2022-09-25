@@ -10,6 +10,7 @@ import {
   validateFileInputAction,
   validatePriceInputAction,
   validateMiniumBidAction,
+  validateTitleAction,
 } from "../redux/ValidateForm/validateForm";
 const Create = () => {
   const dispatch = useDispatch();
@@ -19,6 +20,9 @@ const Create = () => {
   );
   const messageMiniumBidInput = useSelector(
     (state) => state.inputMiniumBid.messageError
+  );
+  const messageTitleInput = useSelector(
+    (state) => state.inputTitle.messageError
   );
   const item = {
     id: "04",
@@ -40,12 +44,17 @@ const Create = () => {
 
   const inputPriceChangeHandle = (e) => {
     const price = e.target.value;
+    console.log(price);
     dispatch(validatePriceInputAction.isValidPrice(price));
   };
-  const inputMiniumBidChangeHandle = (e) =>{
+  const inputMiniumBidChangeHandle = (e) => {
     const miniumBid = e.target.value;
     dispatch(validateMiniumBidAction.isValidMediumBid(miniumBid));
-  }
+  };
+  const inputTitleChangHandle = (e) => {
+    const title = e.target.value;
+    dispatch(validateTitleAction.isValid(title));
+  };
   return (
     <>
       <CommonSection title={"Create Item"} />
@@ -82,6 +91,7 @@ const Create = () => {
                       type="number"
                       placeholder="Enter price for one item (ETH)"
                       onChange={inputPriceChangeHandle}
+                      onBlur={inputPriceChangeHandle}
                     />
                     {messageInputPrice ? (
                       <span className="input__error">{messageInputPrice}</span>
@@ -97,9 +107,12 @@ const Create = () => {
                       placeholder="Enter minium bid"
                       min={0}
                       onChange={inputMiniumBidChangeHandle}
+                      onBlur={inputMiniumBidChangeHandle}
                     />
-                      {messageMiniumBidInput ? (
-                      <span className="input__error">{messageMiniumBidInput}</span>
+                    {messageMiniumBidInput ? (
+                      <span className="input__error">
+                        {messageMiniumBidInput}
+                      </span>
                     ) : (
                       ""
                     )}
@@ -118,7 +131,19 @@ const Create = () => {
 
                   <div className="form__input">
                     <label htmlFor="">Title</label>
-                    <input type="text" placeholder="Enter title" />
+                    <input
+                      type="text"
+                      placeholder="Enter title"
+                      onChange={inputTitleChangHandle}
+                      onBlur={inputTitleChangHandle}
+                    />
+                    {messageTitleInput ? (
+                      <span className="input__error">
+                        {messageTitleInput}
+                      </span>
+                    ) : (
+                      ""
+                    )}
                   </div>
 
                   <div className="form__input">

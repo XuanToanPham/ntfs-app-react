@@ -1,6 +1,6 @@
 import React from "react";
 import "./modal.css";
-const Modal = ({ setShowModal }) => {
+const Modal = ({ setShowModal, nftItem }) => {
   return (
     <div className="modal__wrapper">
       <div className="single__modal">
@@ -9,7 +9,7 @@ const Modal = ({ setShowModal }) => {
         </span>
         <h6 className="text-center text-light">Place a Bid</h6>
         <p className="text-center text-light">
-          You must bid at least <span className="money">5.89 ETH</span>
+          You must bid at least <span className="money">{nftItem.currentBid}</span>
         </p>
 
         <div className="input__item mb-4">
@@ -23,17 +23,17 @@ const Modal = ({ setShowModal }) => {
 
         <div className="d-flex align-items-center justify-content-between">
           <p>You must bid at least</p>
-          <span className="money">5.89 ETH</span>
+          <span className="money">{nftItem.currentBid} ETH</span>
         </div>
 
         <div className="d-flex align-items-center justify-content-between">
           <p>Service Fee</p>
-          <span className="money">5.89 ETH</span>
+          <span className="money">{nftItem.currentBid} ETH</span>
         </div>
 
         <div className="d-flex align-items-center justify-content-between">
           <p>Total Bid Amount</p>
-          <span className="money">5.89 ETH</span>
+          <span className="money">{nftItem.currentBid} ETH</span>
         </div>
 
         <button className="place__bid-btn">Place a Bid</button>

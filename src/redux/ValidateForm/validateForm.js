@@ -48,6 +48,10 @@ export const validatePriceInput = createSlice({
                 state.messageError = "Please enter price(ETH) > 0";
 
             }
+            else if(action.payload === ""){
+                state.isValid = false;
+                state.messageError = "Please enter number :> ";
+            }
             else{
                 state.isValid = true;
                 state.messageError = "";
@@ -72,7 +76,60 @@ export const validateMiniumBid = createSlice({
                 state.messageError = "Please enter > 0";
 
             }
+            else if (action.payload === ""){
+                state.isValid = false;
+                state.messageError = "Please enter number -.-"
+            }
             else{
+                state.isValid = true;
+                state.messageError = "";
+            }
+        }
+    }
+})
+const initialTitleInput = {
+    isValid: true,
+    messageError: "",
+}
+export const validateTitle = createSlice({
+    name: "validateTitle",
+    initialState: initialTitleInput,
+    reducers: {
+        isValid(state,action){
+            if(action.payload === ""){
+                state.isValid = false;
+                state.messageError = "Please enter title :D"
+            }
+
+            else{
+                state.isValid = true;
+                state.messageError = "";
+            }
+        },
+
+    }
+})
+
+const initialName = {
+    isValid: true,
+    messageError: "",
+}
+
+
+export const validateInputName = createSlice({
+    name: "validateInputName",
+    initialState: initialName,
+    reducers: {
+        isValid(state, action){
+            if(action.payload === ""){
+                state.isValid = false;
+                state.messageError = "Please enter your name *_^"
+            }
+            else if(action.payload.length < 6){
+                state.isValid = false;
+                state.messageError = "Please enter yout full name have length > 6";
+            }
+            else {
                 state.isValid = true;
                 state.messageError = "";
             }
@@ -82,3 +139,5 @@ export const validateMiniumBid = createSlice({
 export const validateFileInputAction = validateFileInput.actions;
 export const validatePriceInputAction = validatePriceInput.actions;
 export const validateMiniumBidAction = validateMiniumBid.actions;
+export const validateTitleAction = validateTitle.actions;
+export const validateInputNameAction = validateInputName.actions;
